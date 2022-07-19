@@ -130,6 +130,8 @@ class TicTacToe(Grid):
             cowsay.dragon(f"{self.player1} wins")
             return True
         elif 6 in self.results:
+            if self.random:
+                self.player2 = "Computer"
             cowsay.trex(f"{self.player2} wins")
             return True
         else:
@@ -198,10 +200,6 @@ class TicTacToe(Grid):
             
 
 def main():
-
-    
-    game = TicTacToe("Tom", "Jay")
-    game.playGame()
 
     pcgame = TicTacToe("tom", random=True)
     pcgame.playGame()
