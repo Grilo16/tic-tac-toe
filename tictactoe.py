@@ -306,7 +306,7 @@ class TicTacToe(Grid):
                     self.choices.remove(play)
                     alreadyPlayed.append(play)
                     
-                elif alreadyPlayed == [1,5,9] or alreadyPlayed == [3,5,7]:
+                elif sorted(alreadyPlayed) == [1,5,9] or sorted(alreadyPlayed) == [3,5,7]:
                     possiblePlays = [2, 4, 6, 8]
                     plays = []
                     for item in possiblePlays:
