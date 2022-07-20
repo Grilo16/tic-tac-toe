@@ -173,10 +173,168 @@ class TicTacToe(Grid):
             
             # Play with the computer if selected
             if self.random:
-                play = random.choice(self.choices)
-                self.choices.remove(play)
-                alreadyPlayed.append(play)
                 
+                if  sum([x for x in self.game[::3]]) == 1:
+                    plays = [1,4,7]
+                    play = plays[self.game[::3].index(1)]
+                    print(play)
+                    self.choices.remove(play)
+                    alreadyPlayed.append(play)
+                            
+                elif sum([x for x in self.game[1::3]]) == 5:
+                    plays = [2,5,8]
+                    play = plays[self.game[1::3].index(1)]
+                    print(play)
+                    self.choices.remove(play)
+                    alreadyPlayed.append(play)           
+
+                elif sum([x for x in self.game[1::3]]) == 5:
+                    plays = [2,5,8]
+                    play = plays[self.game[1::3].index(1)]
+                    print(play)
+                    self.choices.remove(play)
+                    alreadyPlayed.append(play)           
+                                        
+                elif sum([x for x in self.game[2::3]]) == 5:
+                    plays = [3,6,9]
+                    play = plays[self.game[2::3].index(1)]
+                    print(play)
+                    self.choices.remove(play)
+                    alreadyPlayed.append(play)
+                   
+                elif sum([x for x in self.game[::4]]) == 5:
+                    plays = [1,5,9]
+                    play = plays[self.game[::4].index(1)]
+                    print(play)
+                    self.choices.remove(play)
+                    alreadyPlayed.append(play)
+                    
+                elif sum([x for x in self.game[2:7:2]]) == 5:
+                    plays = [3,5,7]
+                    play = plays[self.game[2:7:2].index(1)]
+                    print(play)
+                    self.choices.remove(play)
+                    alreadyPlayed.append(play)
+                    
+                elif sum([x for x in self.game[:3:]]) == 5:
+                    plays = [1,2,3]
+                    play = plays[self.game[:3:].index(1)]
+                    print(play)
+                    self.choices.remove(play)
+                    alreadyPlayed.append(play)
+                    
+                elif sum([x for x in self.game[3:6:]]) == 5:
+                    plays = [4,5,6]
+                    play = plays[self.game[3:6:].index(1)]
+                    print(play)
+                    self.choices.remove(play)
+                    alreadyPlayed.append(play)
+                    
+                elif sum([x for x in self.game[6:9:]]) == 5:
+                    plays = [7,8,9]
+                    play = plays[self.game[6:9:].index(1)]
+                    print(play)
+                    self.choices.remove(play)
+                    alreadyPlayed.append(play)
+                    
+                elif  sum([x for x in self.game[::3]]) == 1:
+                    plays = [1,4,7]
+                    play = plays[self.game[::3].index(1)]
+                    print(play)
+                    self.choices.remove(play)
+                    alreadyPlayed.append(play)
+                            
+                elif sum([x for x in self.game[1::3]]) == 1:
+                    plays = [2,5,8]
+                    play = plays[self.game[1::3].index(1)]
+                    print(play)
+                    self.choices.remove(play)
+                    alreadyPlayed.append(play)           
+
+                elif sum([x for x in self.game[1::3]]) == 1:
+                    plays = [2,5,8]
+                    play = plays[self.game[1::3].index(1)]
+                    print(play)
+                    self.choices.remove(play)
+                    alreadyPlayed.append(play)           
+                                        
+                elif sum([x for x in self.game[2::3]]) == 1:
+                    plays = [3,6,9]
+                    play = plays[self.game[2::3].index(1)]
+                    print(play)
+                    self.choices.remove(play)
+                    alreadyPlayed.append(play)
+                   
+                elif sum([x for x in self.game[::4]]) == 1:
+                    plays = [1,5,9]
+                    play = plays[self.game[::4].index(1)]
+                    print(play)
+                    self.choices.remove(play)
+                    alreadyPlayed.append(play)
+                    
+                elif sum([x for x in self.game[2:7:2]]) == 1:
+                    plays = [3,5,7]
+                    play = plays[self.game[2:7:2].index(1)]
+                    print(play)
+                    self.choices.remove(play)
+                    alreadyPlayed.append(play)
+                    
+                elif sum([x for x in self.game[:3:]]) == 1:
+                    plays = [1,2,3]
+                    play = plays[self.game[:3:].index(1)]
+                    print(play)
+                    self.choices.remove(play)
+                    alreadyPlayed.append(play)
+                    
+                elif sum([x for x in self.game[3:6:]]) == 1:
+                    plays = [4,5,6]
+                    play = plays[self.game[3:6:].index(1)]
+                    print(play)
+                    self.choices.remove(play)
+                    alreadyPlayed.append(play)
+                    
+                elif sum([x for x in self.game[6:9:]]) == 1:
+                    plays = [7,8,9]
+                    play = plays[self.game[6:9:].index(1)]
+                    print(play)
+                    self.choices.remove(play)
+                    alreadyPlayed.append(play)
+                    
+                    
+                elif not 5 in alreadyPlayed:
+                    play = 5
+                    self.choices.remove(play)
+                    alreadyPlayed.append(play)
+                    
+                elif alreadyPlayed == [1,5,9] or alreadyPlayed == [3,5,7]:
+                    possiblePlays = [2, 4, 6, 8]
+                    plays = []
+                    for item in possiblePlays:
+                        if not item in alreadyPlayed:
+                            plays.append(item)
+                    if plays:
+                        play = random.choice(plays)                     
+                        self.choices.remove(play)
+                        alreadyPlayed.append(play)
+                        plays = []
+                                                                   
+                else:
+                    
+                    possiblePlays = [1, 3, 7, 9]
+                    plays = []
+                    for item in possiblePlays:
+                        if not item in alreadyPlayed:
+                            plays.append(item)
+                    if plays:
+                        play = random.choice(plays)                     
+                        self.choices.remove(play)
+                        alreadyPlayed.append(play)
+                        plays = []
+                    else:
+                        play = random.choice(self.choices) 
+                        self.choices.remove(play)
+                    
+               
             else:
                 # Player 2 turn
                 while True:
@@ -203,6 +361,7 @@ def main():
 
     pcgame = TicTacToe("tom", random=True)
     pcgame.playGame()
+
     
 if __name__ == "__main__":        
     main()
