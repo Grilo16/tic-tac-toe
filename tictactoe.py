@@ -174,19 +174,13 @@ class TicTacToe(Grid):
             # Play with the computer if selected
             if self.random:
                 
-                if  sum([x for x in self.game[::3]]) == 1:
+                if  sum([x for x in self.game[::3]]) == 5:
                     plays = [1,4,7]
                     play = plays[self.game[::3].index(1)]
                     print(play)
                     self.choices.remove(play)
                     alreadyPlayed.append(play)
-                            
-                elif sum([x for x in self.game[1::3]]) == 5:
-                    plays = [2,5,8]
-                    play = plays[self.game[1::3].index(1)]
-                    print(play)
-                    self.choices.remove(play)
-                    alreadyPlayed.append(play)           
+                         
 
                 elif sum([x for x in self.game[1::3]]) == 5:
                     plays = [2,5,8]
@@ -307,7 +301,11 @@ class TicTacToe(Grid):
                     alreadyPlayed.append(play)
                     
                 elif sorted(alreadyPlayed) == [1,5,9] or sorted(alreadyPlayed) == [3,5,7]:
-                    possiblePlays = [2, 4, 6, 8]
+                    # check who has 5
+                    if self.game[4] == 0:
+                        possiblePlays = [1, 3, 7, 9]
+                    elif self.game[4] == 2:
+                        possiblePlays = [2, 4, 6, 8]
                     plays = []
                     for item in possiblePlays:
                         if not item in alreadyPlayed:
